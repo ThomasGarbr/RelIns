@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <script type="text/javascript" src="{% static 'particles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app.js' %}"></script>
+    <div class="waveWrapper waveAnimation">
+        <div class="waveWrapperInner bgTop">
+          <div class="wave waveTop" style="background-image: url('https://i.ibb.co/DWtHQjz/wave-top.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgMiddle">
+          <div class="wave waveMiddle" style="background-image: url('https://i.ibb.co/f1jcTBG/wave-mid.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgBottom">
+          <div class="wave waveBottom" style="background-image: url('https://i.ibb.co/t2Gqkxj/wave-bot.png')"></div>
+        </div>
+      </div>
+    <div class="wrapper">
+        <div class="title">
+            <h1>What do you <span>feel</span> about that?</h1>
+        </div>
+        <div class="content">
+            <div class="data">
+                {{text.text}}
+            </div>
+            <div class="form">
+                <form action="{% url 'homepage' %}" method="GET">
+                    
+                    <button type="submit" class="submitbtn" value="1" id="but1" name="buttonEmo">Emotional</button>
+                    <button type="submit" class="submitbtn" value="-1" id="but2" name="buttonEmo">Dispassionate</button>
+                    <input type="text" id="none" value={{text.pk}} name="textBack">
+                    <input type="text" id="none" value={{selector}} name="selector">
+                    
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span>DADINC 2021 - 2022</span>
+            <a href="yandex.ru" ><img src="{% static 'images/git.png' %}" id="git" alt="git icon" ></a>
+            <a href="google.com" ><img src="{% static 'images/tg.png' %}" id="tg" alt="" ></a>
+            
+            <!-- <div class="waveWrapper waveAnimation">
+                <div class="waveWrapperInner bgTop">
+                  <div class="wave waveTop" style="background-image: {% static 'images/wave-top.png' %}"></div>
+                </div>
+                <div class="waveWrapperInner bgMiddle">
+                  <div class="wave waveMiddle" style="background-image: {% static 'images/wave-mid.png' %}"></div>
+                </div>
+                <div class="waveWrapperInner bgBottom">
+                  <div class="wave waveBottom" style="background-image: {% static 'images/wave-bot.png' %}"></div>
+                </div>
+              </div> -->
+        </div>
+    </div>
+</body>
+</html>

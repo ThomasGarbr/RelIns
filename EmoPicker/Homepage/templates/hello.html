@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans&display=swap" rel="stylesheet">
+    <script defer src="{% static 'pages.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <script type="text/javascript" src="{% static 'particles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app.js' %}"></script>
+    <div class="hello" id="b1">
+        <div class="hellotext"><p>Hi there!</p>
+        <p>
+        Do you want to be a part of the future Internet?
+        There, you will resist the manipulation of information sources and media because you will have a magic tool...
+        </p>
+    </div>
+        <button class='okbutton' id="btn1">Go on</button>
+    </div>
+    <div class="hello" id="b2">
+        <div class="hellotext">
+       <p>So far, it is only gaining strength and needs your help to grow.</p>
+       <p>You will see examples of sentences. You will have to choose how emotional and evaluative they are and decide whether they try to manipulate you. Judge strictly!</p></div>
+        <button class='okbutton' id="btn2">Go on</button>
+    </div>
+    
+    <div class="hello" id="b3">
+        <div class="hellotext">
+            <p>Before we start, have you ever had any work experience or education in media or linguistics?</p>
+            <form action="{% url 'homepage' %}" method="GET">
+            <div class="container">
+                <!-- <h2>Before we start, have you ever had any work experience or education in media or linguistics?</h2> -->
+              <ul>
+              <li>
+                <input type="radio" id="f-option" name="selector" value="1">
+                <label for="f-option">Yes</label>
+                <div class="check"></div>
+              </li>
+              <li>
+                <input type="radio" id="s-option" name="selector" value="0.75" checked>
+                <label for="s-option">A little bit</label>
+                <div class="check"><div class="inside"></div></div>
+              </li>
+              <li>
+                <input type="radio" id="t-option" name="selector" value="0.5">
+                <label for="t-option">No</label>
+                <div class="check"><div class="inside"></div></div>
+              </li>
+            </ul>
+            </div>
+        </div>
+        
+            <button type="submit" class="okbutton" id="btn3">Start!</button>
+        </form>
+    </div>
+    <div class="wrapper">
+        <div class="title">
+            <h1>What do you <span>feel</span> about that?</h1>
+        </div>
+        <div class="content">
+            <div class="data">
+                {{text.text}}
+            </div>
+            <div class="form">
+                <form action="{% url 'homepage' %}" method="GET">
+                    
+                    <button type="submit" class="submitbtn" value="0" id="but1" name="buttonEmo">Emotional</button>
+                    <button type="submit" class="submitbtn" value="0" id="but2" name="buttonEmo">Dispassionate</button>
+                    <input type="text" id="none" value={{text.pk}} name="textBack">
+                    
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <span>DADINC 2021 - 2022</span>
+            <a href="yandex.ru"><img id="git" src="{% static 'images/git.png' %}" alt="git icon"></a>
+            <a href="google.com"><img src="{% static 'images/tg.png' %}" alt="" id="tg"></a>
+        </div>
+    </div>
+</body>
+</html>
