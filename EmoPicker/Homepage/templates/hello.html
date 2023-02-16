@@ -27,11 +27,10 @@
     </div>
     <div class="hello" id="b2">
         <div class="hellotext">
-       <p>So far, it is only gaining strength and needs your help to grow.</p>
-       <p>You will see examples of sentences. You will have to choose how emotional and evaluative they are and decide whether they try to manipulate you. Judge strictly!</p></div>
+        <p>So far, it is only gaining strength and needs your help to grow.</p>
+        <p>You will see examples of sentences. You will have to choose how emotional and evaluative they are and decide whether they try to manipulate you. Judge strictly!</p></div>
         <button class='okbutton' id="btn2">Go on</button>
     </div>
-    
     <div class="hello" id="b3">
         <div class="hellotext">
             <p>Before we start, have you ever had any work experience or education in media or linguistics?</p>
@@ -57,7 +56,6 @@
             </ul>
             </div>
         </div>
-        
             <button type="submit" class="okbutton" id="btn3">Start!</button>
         </form>
     </div>
@@ -70,17 +68,17 @@
                 {{text.text}}
             </div>
             <div class="form">
-                <form action="{% url 'homepage' %}" method="GET">
-                    
-                    <button type="submit" class="submitbtn" value="0" id="but1" name="buttonEmo">Emotional</button>
-                    <button type="submit" class="submitbtn" value="0" id="but2" name="buttonEmo">Dispassionate</button>
-                    <input type="text" id="none" value={{text.pk}} name="textBack">
-                    
+                <form>
+                    <button type="submit" class="submitbtn" value="0" id="but1" name="buttonEmo">Emotive</button>
+                    <button type="submit" class="submitbtn" value="0" id="but2" name="buttonEmo">Neutral</button>
+                    <button type="submit" class="submitbtn" value="0" id="but3" name="buttonEmo">Subjective</button>
+                    <button type="submit" class="submitbtn" value="0" id="but4" name="buttonEmo">Objective</button>
+                    <!-- <input type="text" id="none" value={{text.pk}} name="textBack"> -->
                 </form>
             </div>
         </div>
         <div class="footer">
-            <span>DADINC 2021 - 2022</span>
+            <span>DADINC 2021 - 2023</span>
             <a href="yandex.ru"><img id="git" src="{% static 'images/git.png' %}" alt="git icon"></a>
             <a href="google.com"><img src="{% static 'images/tg.png' %}" alt="" id="tg"></a>
         </div>

@@ -118,8 +118,9 @@ form {
     width: 100%;
 }
 .form {
+    position: relative;
     text-align: center;
-    flex: 1 0 auto;
+    flex: 1 0 50%;
     display:flex;
     flex-wrap: row wrap;
     margin-top: 20px;
@@ -162,30 +163,117 @@ form {
     height: 40px;
     border-radius: 5px;
 }
-.content form :first-child {
-    background-color: rgb(20, 173, 53);
+.content form > button:not(#garbage, #info) {
+    position: relative;
     transition: all 200ms ease-in-out;
     margin-right: 5px;
+    margin-bottom: 5px;
+    color: rgb(202, 219, 219);
+}
+.content form > button:hover:not(#garbage, #info) {
+    width: 47%;
+    height: 45px;
+}
+.content form :nth-child(1):not(#garbage, #info):not(img) {
+    border: 3px rgb(20, 173, 53) solid;
+    background-color: rgba(20, 173, 53,0.1);
+    
 }
 .content form :nth-child(2) {
-    background-color: rgb(160, 160, 160);
-    transition: all 200ms ease-in-out;
-    margin-left: 5px;
+    border: 3px rgb(160, 160, 160) solid;
+    background-color: rgb(160, 160, 160,0.1);
 }
-.content form :first-child:hover{
-    box-shadow: 0 0 10px rgb(20, 173, 53);
-    width: 47%;
-    height: 45px;
-
+.content form :nth-child(3) {
+    border: 3px #4F759B solid;
+    background-color: rgb(79, 117, 155,0.1);
+}
+.content form :nth-child(4) {
+    border: 3px #FF715B solid;
+    background-color: rgb(255, 113, 91,0.1);
+}
+.content form :nth-child(1):hover:not(img){
+    box-shadow: 0 0 10px rgb(20, 173, 53), 0 0 10px rgb(20, 173, 53) inset
 }
 .content form :nth-child(2):hover{
-    box-shadow: 0 0 10px rgb(160, 160, 160);
-    width: 47%;
-    height: 45px;
+    box-shadow: 0 0 10px rgb(160, 160, 160), 0 0 10px rgb(160, 160, 160) inset
+}
+.content form :nth-child(3):hover{
+    box-shadow: 0 0 10px rgb(79, 117, 155), 0 0 10px #4F759B inset
+}
+.content form :nth-child(4):hover{
+    box-shadow: 0 0 10px rgb(255, 113, 91), 0 0 10px #FF715B inset
 }
 .data {
     height: 300px;
     overflow: auto;
+}
+#garbage {
+    z-index: 30;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0px;
+    top: 150%;
+    filter: invert(90%) sepia(1%) saturate(0%) hue-rotate(23deg) brightness(96%) contrast(98%);
+    background-color: transparent;
+}
+#garbage:hover {
+    animation: shake 0.3s;
+    filter: invert(19%) sepia(89%) saturate(2888%) hue-rotate(356deg) brightness(101%) contrast(78%);
+    animation-iteration-count: 1;
+}
+#info {
+    z-index: 30;
+    position: absolute;
+    width: 0px;
+    height: 60px;
+    right: 70px;
+    top: 150%;
+    filter: invert(90%) sepia(1%) saturate(0%) hue-rotate(23deg) brightness(96%) contrast(98%);
+    background-color: transparent;
+}
+#infoimg {
+    width: 25px;
+    height: 25px;
+}
+
+.popup{
+    position: absolute;
+    text-align: center;
+    padding: 5px 20px 10px 20px;
+    background: rgb(10, 10, 10);
+    box-shadow: 0px 0px 20px rgb(243, 29, 100);
+    transform: translate(35%, 10%) scale(0.05);
+    border-radius: 10px;
+    top: 160%;
+    right: 0%;
+    visibility: hidden;
+    transition: transform 0.3s, right 0.3s;
+}
+.popup button{
+    width: 4vw;
+    min-width: 60px;
+    height: 3vh;
+    min-height: 20px;
+    border-radius: 6px;
+    /* margin-right: 0px; */
+    background-color: rgba(243, 29, 100, 0.4);
+    color: whitesmoke;
+    text-shadow: 0px 0px 1px whitesmoke;
+    font-weight: 500;
+}
+.open-popup{
+    visibility: visible;
+    /* top: -150%; */
+    right: 50%;
+    transform: translate(50%, -35vh) scale(1);
+}
+@keyframes shake {
+    0% { transform: rotate(5deg); filter: invert(94%) sepia(7%) saturate(1080%) hue-rotate(307deg) brightness(104%) contrast(107%);}
+    25% { transform: rotate(-5deg); filter: invert(96%) sepia(80%) saturate(3828%) hue-rotate(292deg) brightness(99%) contrast(90%);}
+    50% { transform: rotate(5deg); filter: invert(64%) sepia(16%) saturate(2428%) hue-rotate(316deg) brightness(91%) contrast(97%);}
+    75% { transform: rotate(-5deg); filter: invert(36%) sepia(40%) saturate(3848%) hue-rotate(340deg) brightness(94%) contrast(84%);}
+    100% { transform: rotate(5deg); filter: invert(19%) sepia(89%) saturate(2888%) hue-rotate(356deg) brightness(101%) contrast(78%);}
 }
 .title {
     padding: 0 0 5% 0;
@@ -193,18 +281,22 @@ form {
 .footer span{
     padding-top: 9px;
 }
-img {
+img:not(#grbimg, #infoimg) {
     background-color: #6A38B3;
-    
 }
+
 #git {
     border-top-left-radius: 4px;
 }
-#none {
+.none {
     display: none;
 }
-
-
+#text_back {
+    display: none;
+}
+#selector {
+    display: none;
+}
 .hello {
     z-index: 55;
     position: absolute;
@@ -213,7 +305,6 @@ img {
     width: 100vw;
     backdrop-filter: blur(5px);
 }
-
 .hellotext {
     line-height: 1.4;
     padding: 10%;
@@ -232,9 +323,7 @@ img {
     width: 350px;
     padding: 20px;
     left: calc(50% - 175px);
-    
 }
-  
 h2 {
     color: white;
 }

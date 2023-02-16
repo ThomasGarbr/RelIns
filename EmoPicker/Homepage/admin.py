@@ -3,8 +3,8 @@ from .models import DataSetText
 
 # Register your models here.
 class Dst_admin(admin.ModelAdmin):
-    list_display = ('pk', 'text', 'rating')
-    fields = ('text', 'rating')
-    list_filter = ('rating', )
+    list_display = ('pk', 'text', 'rating', 'is_garbage', 'is_estimated')
+    fields = ('text', 'rating', 'is_garbage', 'is_estimated')
+    list_filter = ('rating', 'is_garbage', 'is_estimated')
 
 admin.site.register(DataSetText, Dst_admin)
