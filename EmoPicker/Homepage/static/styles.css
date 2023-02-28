@@ -43,7 +43,7 @@ body {
     background-color: #0e0e0e;
     color: white;
     height: 100%;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 #particles-js{
     z-index: -20;
@@ -66,7 +66,7 @@ html{
     height: 100%;
 }
 .wrapper {
-    padding: 5% 10% 0 10%;
+    padding: 5vh 10% 0 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,6 +111,7 @@ html{
 .title {
     font-size: 30px;
     font-weight: 600;
+    margin-bottom: -2vh;
     text-align: center;
     text-shadow: 1px 2px 2px #A224AD;
 }
@@ -126,8 +127,9 @@ form {
     margin-top: 20px;
 }
 .footer{
-    z-index: 30;
-    position: relative;
+    z-index: 17;
+    position: fixed;
+    bottom: 0px;
     height: 30px;
     font-size: 12px;
     margin-top: auto;
@@ -153,16 +155,38 @@ form {
     position: absolute;
     right:0px;
 }
-
 .submitbtn {
     /* z-index: 50; */
+    position: relative;
     font-size: 16px;
     font-weight: 600;
     font-family: 'Noto Sans', sans-serif;
     width: 45%;
     height: 40px;
     border-radius: 5px;
+    overflow: hidden;
 }
+.submitbtn div {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50rem;
+    background-color: red;
+    animation: rippleEffect 1s linear infinite;
+  }
+  @keyframes rippleEffect {
+    from {
+      width: 0;
+      height: 0;
+      opacity: 0.5;
+    }
+    to {
+      width: 1000px;
+      height: 800px;
+      opacity: 0;
+    }
+  }
+
 .content form > button:not(#garbage, #info) {
     position: relative;
     transition: all 200ms ease-in-out;
@@ -174,7 +198,7 @@ form {
     width: 47%;
     height: 45px;
 }
-.content form :nth-child(1):not(#garbage, #info):not(img) {
+.content form :nth-child(1):not(#garbage, #info, div):not(img) {
     border: 3px rgb(20, 173, 53) solid;
     background-color: rgba(20, 173, 53,0.1);
     
@@ -436,7 +460,8 @@ input[type=radio]:checked ~ label{
 }
 .waveWrapper {
     overflow: hidden;
-    position: absolute;
+    position: fixed;
+    z-index: -20;
     left: 0;
     right: 0;
     bottom: 0;
